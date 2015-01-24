@@ -1,0 +1,11 @@
+With cmd:
+are you in the right directory?
+are you in the virtual env?
+
+With cmd models:
+Whenever you add to existing models, you will have to repeat this processrunning python manage.py makemigrations <app_name>, and then python manage.py migrate
+
+
+With Git:
+are you in the right directory?
+to upload stuff : add it, commit it, push it
