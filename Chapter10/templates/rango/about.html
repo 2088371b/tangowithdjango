@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}About{% endblock %}
+{% block body_block %}
+    <body>
+        <h2>Rango says here is the about page.</h2>
+		<h3>This Tutorial has been put together by Jack Berreby, 2088371</h3>
+		<img src="{% static "images/myPic.jpg" %}" alt="Picture of me" /> <!-- New line -->
+    </body>
+{% endblock %}
