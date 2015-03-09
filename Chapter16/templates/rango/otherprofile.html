@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body_block %}
+        <a href="{% url 'index' %}">Homepage</a><br />
+		
+        <p><strong> Username: {{ username }}</strong></p>
+		<p><strong> Email: {{ email }} </strong></p>
+		<p><strong> Website: {{ website }} </strong></p>
+		<p><strong> Picture:</strong> 
+		{% if user_profile.picture %}
+			<img src="{{ user_profile.picture.url }}" />
+		{% endif %}
+{% endblock %}
+</html> 
