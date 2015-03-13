@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}GameSearch{% endblock %}
+{% block body_block %}
+		{% for key,value in games.items %}
+		<ul>
+		<a href="/gamecrew/category/{{key}}/">{{ key }}</a>
+		{% if value %}
+					{% for game in value %}
+					<ul><li><a href="/gamecrew/category/{{key}}/{{game.slug}}" >{{ game }}</a></li></ul>
+					{% endfor %}
+            {% else %}
+                <strong>No games currently in this category.</strong>
+            {% endif %}
+		</ul>
+		{% endfor %}
+{% endblock %}

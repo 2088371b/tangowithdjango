@@ -1,0 +1,9 @@
+h2.pos_left {
+    position: relative;
+    left: -20px;
+}
+
+h2.pos_right {
+    position: relative;
+    left: 20px;
+}

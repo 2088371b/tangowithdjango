@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}GameSearch{% endblock %}
+{% block body_block %}
+        <h1>{{ category_name }}</h1>
+        {% if category %}
+            {% if games %}
+            <ul>
+                {% for game in games %}
+               <ul><li><a href="/gamecrew/category/{{ category.slug }}/{{ game.slug}}" >{{ game.name }}</a></li></ul>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <strong>No games currently in this category.</strong>
+            {% endif %}
+        {% else %}
+            The specified category {{ category_name }} does not exist!
+        {% endif %}
+{% endblock %}
