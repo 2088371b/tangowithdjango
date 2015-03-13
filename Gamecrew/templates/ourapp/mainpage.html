@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+<link href="/static/main.css" rel="stylesheet">
+{% block title %}Mainpage{% endblock %}
+
+{% block body_block %}
+
+{% if user.is_authenticated %}
+    <div class="page-header">
+	<h1>Hello {{ user.username }}!</h1>
+	</div>
+{% endif %}<div class="col-sm-1"></div>	<div class="col-sm-10">
+        <h2>Looking for a gaming team ? Then GameCrew is for you !</h2>
+        <h4>GameCrew is a web application developed to allow gamers to find new gamers to play with.</h4>
+		<h4>This can be for playing casually just as much as to find a competitive team.</h4></div>
+		<div class="col-sm-1"></div>
+	<body>
+		{% if user.is_authenticated %}
+                    {% else %}
+					<div class="col-sm-1"></div>
+						<div class="col-sm-7">
+                        <h1><a href="{% url 'registration_register' %}">Register Here</a></h1></div>
+						<div class="col-sm-4">
+                        <h1><a href="{% url 'auth_login' %}">Login</a></h1></div>
+                    {% endif %}
+					
+	    {% if categories %}
+		
+		<div class="col-sm-1"></div>
+		<div class="col-sm-4">
+			<h4>Here are some of our categories of games:</h4>
+            <ul>
+                {% for category in categories %}
+                <li><a href="/gamecrew/category/{{ category.slug }}">{{ category.name }}</a></li>
+                {% endfor %}
+			    </ul>
+        {% else %}
+            <strong>There are no categories present.</strong>
+        {% endif %}</div>
+		
+		{% if categories %}
+		<div class="col-sm-1"></div>
+		<div class="col-sm-4">
+			<H4> Here are the most popular forums:</H4>
+            <ul>
+				{% for game in games %}
+                <li><a href="/gamecrew/category/{{ game.category }}/{{game.slug}}">{{ game.name }}</a></li>
+                {% endfor %}
+			    </ul>
+        {% else %}
+            <strong>There are no categories present.</strong>
+        {% endif %}</div>
+		<div class="col-sm-2"></div>
+
+		
+{% endblock %}

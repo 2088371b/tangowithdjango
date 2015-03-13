@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Forum :{{ game_name }}{% endblock %}<!DOCTYPE html>
+
+{% block body_block %}
+        <h1>{{ game_name }}</h1>
+        {% if game %}
+			{% if threads %}
+            <ul>
+                {% for thread in threads %}
+                <li><a href="{{ thread.url }}">{{ thread.title }}</a></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <strong>No threads currently in this forum.</strong>
+            {% endif %}
+        {% else %}
+            The specified game {{ game_name }} does not exist!
+        {% endif %}
+{% endblock %}
